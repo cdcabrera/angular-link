@@ -1,0 +1,45 @@
+{
+    "name": "Angular-Link",
+    "version": "0.0.1",
+    "description": "Load CSS files through Angular",
+    "scripts": {
+
+        "postinstall": "bower install",
+        "serve": "gulp serve",
+        "test": "karma start",
+        "update": "bower update"
+    },
+    "repository": {
+
+        "type": "git",
+        "url": "https://github.com/cdcabrera/angular-link.git"
+    },
+    "keywords": ["angular", "css", "load"],
+    "author": "cdcabrera",
+    "license": "MIT",
+    "engines" : {
+
+        "node" : ">=0.12.2"
+    },
+    "devDependencies": {
+
+        "bower": "^1.4.1",
+
+        "browser-sync": "^2.5.2",
+
+        "gulp": "~3.8.10",
+        "gulp-jshint": "^1.10.0",
+
+        "jasmine-core": "^2.2.0",
+        "karma": "^0.12.31",
+        "karma-cli": "^0.0.4",
+        "karma-jasmine": "^0.3.5",
+        "karma-chrome-launcher": "^0.1.7",
+        "karma-firefox-launcher": "^0.1.4",
+        "karma-phantomjs-launcher": "^0.1.4",
+        "karma-ng-html2js-preprocessor": "^0.1.2",
+        "karma-ng-json2js-preprocessor": "^1.0.0",
+
+        "phantomjs": "^1.9.16"
+    }
+}

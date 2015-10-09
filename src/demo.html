@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body data-ng-app="sample">
+
+        <div class="container-fluid"
+             data-ng-controller="samplectrl">
+
+            <h1>Demo, Angular-Link</h1>
+
+            <p>
+                The css-link directive uses two parameters, "stylesheets" == an array of url strings and "complete" == a returned
+                boolean indicating the directive has completed its link generate cycle.
+            </p>
+
+            <a class="btn btn-primary"
+               data-ng-href="#">Bootstrap CSS styled button, the CSS has {{cssLoaded}}</a>
+
+
+            <div data-css-link="" data-stylesheets="cssStylesheets" data-complete="cssHasLoaded"></div>
+
+        </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+        <script src="directive.link.js"></script>
+        <script>
+
+            var app = angular.module('sample',['directives.csslink']);
+
+            app.controller('samplectrl', [
+                '$scope',
+                '$timeout',
+                function($scope, $timeout) {
+
+                    $scope.cssLoaded        = 'Not Loaded';
+                    $scope.cssHasLoaded     = undefined;
+                    $scope.cssStylesheets   = [];
+
+                    /**
+                     * Wait for DOM render and then some...
+                     */
+                    $timeout(function(){
+
+                        $scope.cssStylesheets = [
+
+                            "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+                        ];
+
+                        $scope.$watch('cssHasLoaded', function(newVal, oldVal) {
+
+                            if (newVal === true) {
+
+                                $scope.cssLoaded = 'TOTES been applied';
+                            }
+                        });
+
+                    },1000);
+
+                }]);
+
+        </script>
+    </body>
+</html>
